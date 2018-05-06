@@ -9,18 +9,15 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private Transform respawnPoint;
 
-	private readonly float RIGHT = 1F;
-	private readonly float LEFT = -1F;
-
 	void Start () {
 		Respawn();
 	}
 	
 	void Update () {
 		if(Input.GetKey(KeyCode.LeftArrow)) {
-			player.MoveHorizontal(LEFT);
+			player.MoveHorizontal(GS.LEFT);
 		} else if(Input.GetKey(KeyCode.RightArrow)) {
-			player.MoveHorizontal(RIGHT);
+			player.MoveHorizontal(GS.RIGHT);
 		} else if(Input.GetKey(KeyCode.Space)) {
 			player.Shoot();
 		}

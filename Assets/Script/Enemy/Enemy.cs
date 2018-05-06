@@ -2,29 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Enemy : MonoBehaviour {
 	[SerializeField]
-	private GameObject Bullet;
+	private GameObject motion0;
 	[SerializeField]
-	private float speed;
-
-	//cached
-	private Vector3 moveVector;
-
-	void Start() {
-		moveVector = speed*Vector3.right;
-	}
+	private GameObject motion1;
 
 	public void MoveHorizontal(int direction) {
-		Vector3 planSite = transform.position+direction*moveVector;
+		Vector3 planSite = transform.position+direction*GS.ENEMY_SPEED;
 		if(planSite.x < GS.LEFT_LIMIT) {
 			planSite.x = GS.LEFT_LIMIT;
 		} else if(planSite.x > GS.RIGHT_LIMIT) {
 			planSite.x = GS.RIGHT_LIMIT;
 		}
 		transform.position = planSite;
+		flipMotion();
 	}
 
-	public void Shoot() {
+	private void flipMotion() {
+		motion0.SetActive(!motion0.activeSelf);
+		motion1.SetActive(!motion1.activeSelf);
 	}
 }
