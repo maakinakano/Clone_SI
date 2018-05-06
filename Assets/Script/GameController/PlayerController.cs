@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private Transform respawnPoint;
 
+	private bool canShoot;
+
 	void Start () {
 		Respawn();
 	}
@@ -16,14 +18,18 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		if(Input.GetKey(KeyCode.LeftArrow)) {
 			player.MoveHorizontal(GS.LEFT);
-		} else if(Input.GetKey(KeyCode.RightArrow)) {
+		}
+		if(Input.GetKey(KeyCode.RightArrow)) {
 			player.MoveHorizontal(GS.RIGHT);
-		} else if(Input.GetKey(KeyCode.Space)) {
-			player.Shoot();
+		}
+		if(Input.GetKeyDown(KeyCode.Space) && canShoot) {
+			canShoot = false;
+			player.Shoot(()=>{canShoot = true;});
 		}
 	}
 
 	void Respawn() {
 		player = Instantiate(playerPrefab, respawnPoint).GetComponent<Player>();
+		canShoot = true;
 	}
 }

@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4130136755626806}
   - component: {fileID: 114288513239840916}
+  - component: {fileID: 65710730827502342}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +38,6 @@ GameObject:
   - component: {fileID: 4970709711317648}
   - component: {fileID: 33009170614274274}
   - component: {fileID: 23293965358095096}
-  - component: {fileID: 65048512491134306}
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
@@ -55,7 +55,6 @@ GameObject:
   - component: {fileID: 4593166006901496}
   - component: {fileID: 33239613798232976}
   - component: {fileID: 23606602056309662}
-  - component: {fileID: 65406073318856908}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -188,29 +187,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1634545011799524}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65048512491134306
+--- !u!65 &65710730827502342
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1297636257882856}
+  m_GameObject: {fileID: 1246602208210986}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65406073318856908
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1634545011799524}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114288513239840916
 MonoBehaviour:
@@ -223,5 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f31701333070744da36fad9357549f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 0}
+  bulletPrefab: {fileID: 1051046007025994, guid: e290d4edfa38ee44195eaab03dc7878c,
+    type: 2}
   speed: 0.5
+  bulletSpeed: 15

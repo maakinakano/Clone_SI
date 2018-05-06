@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4948312214743844}
   - component: {fileID: 33071228360463316}
   - component: {fileID: 23524385902804300}
-  - component: {fileID: 65771376264698446}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -54,7 +53,6 @@ GameObject:
   - component: {fileID: 4866154353082916}
   - component: {fileID: 33624133034450168}
   - component: {fileID: 23830771760877534}
-  - component: {fileID: 65635387738844338}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -87,7 +85,6 @@ GameObject:
   - component: {fileID: 4025526404286194}
   - component: {fileID: 33306432265543534}
   - component: {fileID: 23382498672015400}
-  - component: {fileID: 65602392891151482}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -105,7 +102,6 @@ GameObject:
   - component: {fileID: 4145391682230214}
   - component: {fileID: 33391637163190074}
   - component: {fileID: 23191661474409230}
-  - component: {fileID: 65964031823512884}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -123,7 +119,6 @@ GameObject:
   - component: {fileID: 4758528710242798}
   - component: {fileID: 33925110866690522}
   - component: {fileID: 23479289948518340}
-  - component: {fileID: 65456742089476780}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -140,9 +135,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4486425449074476}
   - component: {fileID: 114046687060338448}
+  - component: {fileID: 65505071653200300}
   m_Layer: 0
   m_Name: Club
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +153,6 @@ GameObject:
   - component: {fileID: 4405341238627140}
   - component: {fileID: 33533397040191448}
   - component: {fileID: 23459644649696910}
-  - component: {fileID: 65030671353962386}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -542,74 +537,14 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1487424775677736}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65030671353962386
+--- !u!65 &65505071653200300
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1977002203918178}
+  m_GameObject: {fileID: 1669306940728234}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65456742089476780
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1487424775677736}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65602392891151482
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1424842756953912}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65635387738844338
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1335184444261978}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65771376264698446
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1300469349585076}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65964031823512884
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1432921475055662}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}

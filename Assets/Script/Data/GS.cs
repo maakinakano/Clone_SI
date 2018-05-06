@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 //Game Settings
 public class GS {
+	//game layout
 	public static readonly float LEFT_LIMIT = -10f;
 	public static readonly float RIGHT_LIMIT = 10f;
+	public static readonly float TOP_LIMIT = 5f;
 
 	public static readonly int RIGHT = 1;
 	public static readonly int LEFT = -1;

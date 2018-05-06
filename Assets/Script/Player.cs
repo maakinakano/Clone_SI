@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour {
 	[SerializeField]
-	private GameObject Bullet;
+	private GameObject bulletPrefab;
+
+	//player spec
 	[SerializeField]
 	private float speed;
+	[SerializeField]
+	private float bulletSpeed;
 
 	//cached
 	private Vector3 moveVector;
@@ -25,6 +30,9 @@ public class Player : MonoBehaviour {
 		transform.position = planSite;
 	}
 
-	public void Shoot() {
+	public void Shoot(UnityAction reload) {
+		GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+		bullet.GetComponent<Rigidbody>().velocity = bulletSpeed*Vector3.up;
+		bullet.GetComponent<PlayerBullet>().reload = reload;
 	}
 }

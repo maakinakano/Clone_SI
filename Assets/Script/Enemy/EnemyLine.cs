@@ -20,12 +20,18 @@ public class EnemyLine {
 
 	public void MoveHorizontal(int direction) {
 		for(int i = 0; i < GS.CORPSE_WIDTH; i++) {
+			if(enemies[i] == null) {
+				continue;
+			}
 			enemies[i].MoveHorizontal(direction);
 		}
 	}
 
 	public void MoveDown() {
 		for(int i = 0; i < GS.CORPSE_WIDTH; i++) {
+			if(enemies[i] == null) {
+				continue;
+			}
 			enemies[i].MoveDown();
 		}
 	}

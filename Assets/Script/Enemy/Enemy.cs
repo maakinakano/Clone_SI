@@ -29,4 +29,8 @@ public class Enemy : MonoBehaviour {
 		motion0.SetActive(!motion0.activeSelf);
 		motion1.SetActive(!motion1.activeSelf);
 	}
+
+	public void Death() {
+		Destroy(gameObject);
+	}
 }
