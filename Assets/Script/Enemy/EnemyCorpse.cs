@@ -9,7 +9,7 @@ public class EnemyCorpse{
 	public EnemyCorpse(GameObject[] enemyKind, UnityAction<int> reachEdge) {
 		enemyLine = new EnemyLine[GS.CORPSE_HEIGHT];
 		for(int i = 0; i < GS.CORPSE_HEIGHT; i++) {
-			float y = GS.ENEMY_HEIGHT*(i-GS.CORPSE_HEIGHT/2);
+			float y = GS.ENEMY_HEIGHT_OFFSET + GS.ENEMY_HEIGHT*(i-GS.CORPSE_HEIGHT/2);
 			enemyLine[i] = new EnemyLine(enemyKind[i], y, reachEdge);
 
 		}

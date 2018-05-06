@@ -33,17 +33,17 @@
 	            float y = i.worldPos.y;
 	            if(y > 10) {
 	                return fixed4(1, 0, 0, 1);
-	            } else if(y>2){
+	            } else if(y>1.73){
 	                return fixed4(0, 1, 0, 1);
-	            } else if(y>0.4){
+	            } else if(y>0.51){
 	                return fixed4(0, 1, 1, 1);
-	            } else if(y>-1.2){
+	            } else if(y>-0.75){
 	                return fixed4(1, 0, 1, 1);
-	            } else if(y>-2.8){
+	            } else if(y>-2.02){
 	                return fixed4(1, 1, 0, 1);
-	            } else if(y>-4.4){
+	            } else if(y>-2.95){
 	                return fixed4(1, 0, 0, 1);
-	            } else if(y>-5) {
+	            } else if(y>-4) {
 	            	return fixed4(0, 1, 1, 1);
 	            }
 	            return fixed4(1,0,0,1);
