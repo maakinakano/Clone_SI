@@ -7,8 +7,12 @@ public class EnemyController : MonoBehaviour {
 	private GameObject[] enemyKind = new GameObject[GS.CORPSE_HEIGHT];
 
 	private EnemyCorpse enemyCorpse;
+
+	//enemy move
 	private float moveCoolTime;
 	private float moveTimer;
+	private int direction;
+	private bool willDown;
 
 	void Start () {
 		Initalize();
@@ -17,22 +21,35 @@ public class EnemyController : MonoBehaviour {
 	void Update() {
 		moveTimer -= Time.deltaTime;
 		if(moveTimer < 0f) {
-			MoveHorizontal();
+			MoveEnemy();
 		}
 	}
 
-	private void MoveHorizontal() {
+	//for enemy move modules
+	private void MoveEnemy() {
 		moveTimer += moveCoolTime;
-		enemyCorpse.MoveHorizontal(GS.RIGHT);
+		if(willDown) {
+			willDown = false;
+			enemyCorpse.MoveDown();
+		} else {
+			enemyCorpse.MoveHorizontal(direction);
+		}
+	}
+
+	public void ReachEdge(int edge) {
+		direction = -edge;
+		willDown = true;
 	}
 
 	//for init modules
 	public void Initalize() {
 		Spawn();
 		moveCoolTime = 1f;
+		direction = GS.RIGHT;
+		willDown = false;
 	}
 
 	private void Spawn() {
-		enemyCorpse = new EnemyCorpse(enemyKind);
+		enemyCorpse = new EnemyCorpse(enemyKind, ReachEdge);
 	}
 }
