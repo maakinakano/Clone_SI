@@ -18,6 +18,7 @@ public class EnemyLine {
 		}
 	}
 
+	//for enemy move modules
 	public void MoveHorizontal(int direction) {
 		for(int i = 0; i < GS.CORPSE_WIDTH; i++) {
 			if(enemies[i] == null) {
@@ -34,5 +35,21 @@ public class EnemyLine {
 			}
 			enemies[i].MoveDown();
 		}
+	}
+
+	//for enemy attack modues
+	public void ShootEnemy(int i) {
+		enemies[i].ShootEnemy();
+	}
+
+	public int GetAliveEnemyPos() {
+		int posBit = 0;
+		for(int i = 0; i < GS.CORPSE_WIDTH; i++) {
+			posBit <<= 1;
+			if(enemies[i] != null) {
+				posBit |= 1;
+			}
+		}
+		return posBit;
 	}
 }

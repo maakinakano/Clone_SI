@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour {
 	private GameObject motion1;
 	[HideInInspector]
 	public UnityAction<int> reachEdge;
+	[SerializeField]
+	private GameObject bulletPrefab;
 
 	public void MoveHorizontal(int direction) {
 		transform.position += direction*GS.ENEMY_SPEED;
@@ -18,16 +20,21 @@ public class Enemy : MonoBehaviour {
 		} else if(transform.position.x > GS.RIGHT_LIMIT) {
 			reachEdge(GS.RIGHT);
 		}
-		flipMotion();
+		FlipMotion();
 	}
 
 	public void MoveDown() {
 		transform.position += GS.ENEMY_SPEED_DOWN;
 	}
 
-	private void flipMotion() {
+	private void FlipMotion() {
 		motion0.SetActive(!motion0.activeSelf);
 		motion1.SetActive(!motion1.activeSelf);
+	}
+
+	public void ShootEnemy() {
+		GameObject bullet = Instantiate(bulletPrefab, transform.position+GS.ENEMY_MAZZLE_OFFSET, Quaternion.identity);
+		bullet.GetComponent<Rigidbody>().velocity = GS.ENEMY_BULLET_SPEED*Vector3.down;
 	}
 
 	public void Death() {
