@@ -55,7 +55,6 @@ GameObject:
   - component: {fileID: 4503337351430912}
   - component: {fileID: 33203500456805256}
   - component: {fileID: 23145682469041568}
-  - component: {fileID: 65491213637253350}
   m_Layer: 0
   m_Name: Leg
   m_TagString: Untagged
@@ -156,7 +155,6 @@ GameObject:
   - component: {fileID: 4467835237565622}
   - component: {fileID: 33203319244974914}
   - component: {fileID: 23988577054022922}
-  - component: {fileID: 65537397678056582}
   m_Layer: 0
   m_Name: Leg
   m_TagString: Untagged
@@ -685,30 +683,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472552832090970}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65491213637253350
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1284015528495040}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65537397678056582
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1602397138230254}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65620690943303664
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -719,8 +693,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.0148201, z: 1}
+  m_Center: {x: 0, y: 0.3038099, z: 0}
 --- !u!114 &114151424477271176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -736,3 +710,4 @@ MonoBehaviour:
   motion1: {fileID: 1623070274475712}
   bulletPrefab: {fileID: 1706027055858078, guid: 16550860d7248fb40b627a45524c559d,
     type: 2}
+  score: 10

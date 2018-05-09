@@ -8,10 +8,14 @@ public class Enemy : MonoBehaviour {
 	private GameObject motion0;
 	[SerializeField]
 	private GameObject motion1;
-	[HideInInspector]
-	public UnityAction<int> reachEdge;
 	[SerializeField]
 	private GameObject bulletPrefab;
+	[SerializeField]
+	public int score;
+	[HideInInspector]
+	public UnityAction<int> reachEdge;
+	[HideInInspector]
+	public UnityAction<int> addScore;
 
 	public void MoveHorizontal(int direction) {
 		transform.position += direction*GS.ENEMY_SPEED;
@@ -38,6 +42,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void Death() {
+		addScore(score);
 		Destroy(gameObject);
 	}
 }

@@ -564,3 +564,4 @@ MonoBehaviour:
   motion1: {fileID: 1379232202007404}
   bulletPrefab: {fileID: 1706027055858078, guid: 16550860d7248fb40b627a45524c559d,
     type: 2}
+  score: 20

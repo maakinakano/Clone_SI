@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour {
 	[SerializeField]
@@ -16,10 +17,6 @@ public class EnemyController : MonoBehaviour {
 	//enemy attack
 	private float attackTimer;
 	private int[] aliveEnemy = new int[GS.CORPSE_WIDTH];
-
-	void Start () {
-		Initalize();
-	}
 
 	void Update() {
 		moveTimer -= Time.deltaTime;
@@ -73,7 +70,6 @@ public class EnemyController : MonoBehaviour {
 
 	//for init modules
 	public void Initalize() {
-		Spawn();
 		direction = GS.RIGHT;
 		willDown = false;
 		moveCoolTime = GS.MOVE_COOL_TIME;
@@ -81,7 +77,7 @@ public class EnemyController : MonoBehaviour {
 		attackTimer = GS.ATTACK_COOL_TIME;
 	}
 
-	private void Spawn() {
-		enemyCorpse = new EnemyCorpse(enemyKind, ReachEdge);
+	public void Spawn(UnityAction<int> addScore) {
+		enemyCorpse = new EnemyCorpse(enemyKind, ReachEdge, addScore);
 	}
 }

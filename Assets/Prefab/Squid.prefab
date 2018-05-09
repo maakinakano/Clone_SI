@@ -693,8 +693,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.8369803, z: 1}
+  m_Center: {x: 0, y: 0.081509866, z: 0}
 --- !u!114 &114922151872449974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -710,3 +710,4 @@ MonoBehaviour:
   motion1: {fileID: 1193589721656364}
   bulletPrefab: {fileID: 1706027055858078, guid: 16550860d7248fb40b627a45524c559d,
     type: 2}
+  score: 30
