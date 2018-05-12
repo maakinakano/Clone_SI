@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour {
 	[SerializeField]
 	private GameObject bulletPrefab;
 	[SerializeField]
+	private GameObject bulletPrefabWave;
+	[SerializeField]
 	public int score;
 	[HideInInspector]
 	public UnityAction<int> reachEdge;
@@ -37,7 +39,9 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void ShootEnemy() {
-		GameObject bullet = Instantiate(bulletPrefab, transform.position+GS.ENEMY_MAZZLE_OFFSET, Quaternion.identity);
+		//波弾より通常弾のほうが気持ち出やすい
+		GameObject prefab = (Random.Range(0, 5) < 3) ? bulletPrefab : bulletPrefabWave;
+		GameObject bullet = Instantiate(prefab, transform.position+GS.ENEMY_MAZZLE_OFFSET, Quaternion.identity);
 		bullet.GetComponent<Rigidbody>().velocity = GS.ENEMY_BULLET_SPEED*Vector3.down;
 	}
 

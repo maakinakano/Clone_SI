@@ -22,6 +22,6 @@ public class GS {
 	public static readonly float ENEMY_BULLET_SPEED = 6f;
 	public static readonly Vector3 ENEMY_MAZZLE_OFFSET = new Vector3(0f, -0.4f, 0f);
 
-	//redCube]
+	//redCube
 	public static readonly float RED_QUBE_SIZE = 0.05f;
 }

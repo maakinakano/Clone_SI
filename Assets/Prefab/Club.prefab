@@ -562,6 +562,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motion0: {fileID: 1327672004058612}
   motion1: {fileID: 1379232202007404}
-  bulletPrefab: {fileID: 1706027055858078, guid: 16550860d7248fb40b627a45524c559d,
+  bulletPrefab: {fileID: 1331818180026730, guid: 16550860d7248fb40b627a45524c559d,
+    type: 2}
+  bulletPrefabWave: {fileID: 1794517116275566, guid: e5c4e86e93fa6314f84175e26d4c60b2,
     type: 2}
   score: 20
