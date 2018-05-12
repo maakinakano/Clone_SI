@@ -8,6 +8,8 @@ public class EnemyController : MonoBehaviour {
 	private GameObject[] enemyKind = new GameObject[GS.CORPSE_HEIGHT];
 
 	private EnemyCorpse enemyCorpse;
+	[HideInInspector]
+	public UnityAction<int> addScore;
 
 	//enemy move
 	private float moveCoolTime;
@@ -18,16 +20,24 @@ public class EnemyController : MonoBehaviour {
 	//enemy attack
 	private float attackTimer;
 	private int[] aliveEnemy = new int[GS.CORPSE_WIDTH];
+	//ufo
+	[SerializeField]
+	private GameObject ufo;
+	private float ufoTimer;
 
 	void Update() {
 		if(enemyFuneral){return;}
 		moveTimer -= Time.deltaTime;
 		attackTimer -= Time.deltaTime;
+		ufoTimer -= Time.deltaTime;
 		if(moveTimer < 0f) {
 			MoveEnemy();
 		}
 		if(attackTimer < 0f) {
 			ShootEnemy();
+		}
+		if(ufoTimer < 0f) {
+			UFOSpawn();
 		}
 	}
 
@@ -70,6 +80,15 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 
+	//for UFO spawn module
+	public void UFOSpawn() {
+		ufoTimer += GS.UFO_SPAWN_COOL_TIME+Random.Range(0f, GS.UFO_SPAWN_COOL_TIME);
+		int dir = (Random.Range(0, 2) == 0) ? 1 : -1;
+		GameObject ufoObject = Instantiate(ufo, new Vector3(dir*GS.RIGHT_LIMIT, 3.8f, 0), Quaternion.identity);
+		ufoObject.GetComponent<UFO>().addScore = addScore;
+		ufoObject.GetComponent<Rigidbody>().velocity = dir*Vector3.left*3.0f;
+	}
+
 	//for init modules
 	public void Initalize() {
 		direction = GS.RIGHT;
@@ -77,9 +96,10 @@ public class EnemyController : MonoBehaviour {
 		moveCoolTime = GS.MOVE_COOL_TIME;
 		moveTimer = moveCoolTime;
 		attackTimer = GS.ATTACK_COOL_TIME;
+		ufoTimer = GS.UFO_SPAWN_COOL_TIME;
 	}
 
-	public void Spawn(UnityAction<int> addScore) {
+	public void Spawn() {
 		enemyCorpse = new EnemyCorpse(enemyKind, ReachEdge, (x)=>{
 			//敵が死ぬと少し移動を止める
 			enemyFuneral = true;

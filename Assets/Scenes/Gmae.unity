@@ -332,6 +332,7 @@ MonoBehaviour:
   - {fileID: 1669306940728234, guid: a7cfb35389bd24e44bdd6414bddc1362, type: 2}
   - {fileID: 1669306940728234, guid: a7cfb35389bd24e44bdd6414bddc1362, type: 2}
   - {fileID: 1177592676875748, guid: 1ffcc84580a6719439262dac247a315e, type: 2}
+  ufo: {fileID: 1201778432315698, guid: dff2df208a88ef14ab4314782ac0f400, type: 2}
 --- !u!114 &210516051
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviour {
 			uiCon.ReflectScore(x);
 		};
 		enemyCon.Initalize();
-		enemyCon.Spawn((score) => {
+		enemyCon.addScore = (score) => {
 			scoreCon.addScore(score);
-		});
+		};
+		enemyCon.Spawn();
 	}
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - RedQube
+  - UFO
   layers:
   - Default
   - TransparentFX

@@ -24,6 +24,8 @@ public class PlayerBullet : MonoBehaviour {
 			other.gameObject.GetComponent<Enemy>().Death();
 		} else if(tag == "RedQube") {
 			other.gameObject.GetComponent<RedQube>().Collupse();
+		} else if(tag == "UFO") {
+			other.gameObject.GetComponent<UFO>().Death();
 		}
 
 		reload();

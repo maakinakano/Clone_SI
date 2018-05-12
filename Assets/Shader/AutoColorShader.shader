@@ -41,8 +41,8 @@
             		return fixed4(0, 0, 0, 0);
             	}
 	            float y = i.worldPos.y;
-	            if(y > 10) {
-	                return fixed4(1, 0, 0, 1);
+	            if(y > 3) {
+	                return fixed4(1, 0, 1, 1);
 	            } else if(y>1.73){
 	                return fixed4(0, 1, 0, 1);
 	            } else if(y>0.51){
