@@ -13,6 +13,8 @@ public class EnemyBullet : MonoBehaviour {
 		}
 		if(tag == "Player") {
 			Destroy(other.gameObject);
+		} else if(tag == "RedQube") {
+			other.gameObject.GetComponent<RedQube>().Collupse();
 		}
 	}
 }

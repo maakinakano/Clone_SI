@@ -22,7 +22,10 @@ public class PlayerBullet : MonoBehaviour {
 		}
 		if(tag == "Enemy") {
 			other.gameObject.GetComponent<Enemy>().Death();
+		} else if(tag == "RedQube") {
+			other.gameObject.GetComponent<RedQube>().Collupse();
 		}
+
 		reload();
 		Destroy(gameObject);
 	}
