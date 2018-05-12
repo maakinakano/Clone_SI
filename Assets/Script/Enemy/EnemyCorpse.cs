@@ -6,11 +6,11 @@ using UnityEngine.Events;
 public class EnemyCorpse{
 	private EnemyLine[] enemyLine;
 
-	public EnemyCorpse(GameObject[] enemyKind, UnityAction<int> reachEdge, UnityAction<int> addScore) {
+	public EnemyCorpse(GameObject[] enemyKind, UnityAction<int> reachEdge, UnityAction<int> onClush, UnityAction onDeath) {
 		enemyLine = new EnemyLine[GS.CORPSE_HEIGHT];
 		for(int i = 0; i < GS.CORPSE_HEIGHT; i++) {
 			float y = GS.ENEMY_HEIGHT_OFFSET + GS.ENEMY_HEIGHT*(i-GS.CORPSE_HEIGHT/2);
-			enemyLine[i] = new EnemyLine(enemyKind[i], y, reachEdge, addScore);
+			enemyLine[i] = new EnemyLine(enemyKind[i], y, reachEdge, onClush, onDeath);
 		}
 	}
 

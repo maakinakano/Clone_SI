@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class EnemyLine {
 	private Enemy[] enemies;
 
-	public EnemyLine(GameObject enemyPrefab, float y, UnityAction<int> reachEdge, UnityAction<int> addScore) {
+	public EnemyLine(GameObject enemyPrefab, float y, UnityAction<int> reachEdge, UnityAction<int> onClush, UnityAction onDeath) {
 		enemies = new Enemy[GS.CORPSE_WIDTH];
 		GameObject enemyParent = GameObject.Find("Enemies");
 		for(int i = 0; i < GS.CORPSE_WIDTH; i++) {
@@ -15,7 +15,8 @@ public class EnemyLine {
 			enemy.transform.parent = enemyParent.transform;
 			enemies[i] = enemy.GetComponent<Enemy>();
 			enemies[i].reachEdge = reachEdge;
-			enemies[i].addScore = addScore;
+			enemies[i].onClush = onClush;
+			enemies[i].onDeath = onDeath;
 		}
 	}
 

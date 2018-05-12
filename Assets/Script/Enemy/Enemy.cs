@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour {
 	[SerializeField]
 	private GameObject motion1;
 	[SerializeField]
+	private GameObject clush;
+	[SerializeField]
 	private GameObject bulletPrefab;
 	[SerializeField]
 	private GameObject bulletPrefabWave;
@@ -17,9 +19,15 @@ public class Enemy : MonoBehaviour {
 	[HideInInspector]
 	public UnityAction<int> reachEdge;
 	[HideInInspector]
-	public UnityAction<int> addScore;
+	public UnityAction<int> onClush;
+	[HideInInspector]
+	public UnityAction onDeath;
+
+
+	private bool willDead = false;
 
 	public void MoveHorizontal(int direction) {
+		if(willDead) {return;}
 		transform.position += direction*GS.ENEMY_SPEED;
 		if(transform.position.x < GS.LEFT_LIMIT) {
 			reachEdge(GS.LEFT);
@@ -30,6 +38,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void MoveDown() {
+		if(willDead) {return;}
 		transform.position += GS.ENEMY_SPEED_DOWN;
 	}
 
@@ -39,6 +48,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void ShootEnemy() {
+		if(willDead) {return;}
 		//波弾より通常弾のほうが気持ち出やすい
 		GameObject prefab = (Random.Range(0, 5) < 3) ? bulletPrefab : bulletPrefabWave;
 		GameObject bullet = Instantiate(prefab, transform.position+GS.ENEMY_MAZZLE_OFFSET, Quaternion.identity);
@@ -46,7 +56,16 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void Death() {
-		addScore(score);
+		motion0.SetActive(false);
+		motion1.SetActive(false);
+		clush.SetActive(true);
+		onClush(score);
+		willDead = true;
+		StartCoroutine("destroyCoroutine");
+	}
+	private IEnumerator destroyCoroutine() {
+		yield return new WaitForSeconds(0.25f);
+		onDeath();
 		Destroy(gameObject);
 	}
 }

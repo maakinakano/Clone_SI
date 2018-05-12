@@ -14,11 +14,13 @@ public class EnemyController : MonoBehaviour {
 	private float moveTimer;
 	private int direction;
 	private bool willDown;
+	private bool enemyFuneral;
 	//enemy attack
 	private float attackTimer;
 	private int[] aliveEnemy = new int[GS.CORPSE_WIDTH];
 
 	void Update() {
+		if(enemyFuneral){return;}
 		moveTimer -= Time.deltaTime;
 		attackTimer -= Time.deltaTime;
 		if(moveTimer < 0f) {
@@ -78,6 +80,14 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	public void Spawn(UnityAction<int> addScore) {
-		enemyCorpse = new EnemyCorpse(enemyKind, ReachEdge, addScore);
+		enemyCorpse = new EnemyCorpse(enemyKind, ReachEdge, (x)=>{
+			//敵が死ぬと少し移動を止める
+			enemyFuneral = true;
+			addScore(x);
+		},onEnemyDead);
+	}
+
+	public void onEnemyDead() {
+		enemyFuneral = false;
 	}
 }
