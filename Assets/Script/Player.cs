@@ -20,8 +20,8 @@ public class Player : MonoBehaviour {
 		moveVector = speed*Vector3.right;
 	}
 
-	public void MoveHorizontal(int direction) {
-		Vector3 planSite = transform.position+direction*moveVector;
+	public void MoveHorizontal(int direction, float deltaTime) {
+		Vector3 planSite = transform.position+direction*moveVector*deltaTime;
 		if(planSite.x < GS.LEFT_LIMIT) {
 			planSite.x = GS.LEFT_LIMIT;
 		} else if(planSite.x > GS.RIGHT_LIMIT) {

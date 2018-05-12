@@ -17,10 +17,10 @@ public class PlayerController : MonoBehaviour {
 	
 	void Update () {
 		if(Input.GetKey(KeyCode.LeftArrow)) {
-			player.MoveHorizontal(GS.LEFT);
+			player.MoveHorizontal(GS.LEFT, Time.deltaTime);
 		}
 		if(Input.GetKey(KeyCode.RightArrow)) {
-			player.MoveHorizontal(GS.RIGHT);
+			player.MoveHorizontal(GS.RIGHT, Time.deltaTime);
 		}
 		if(Input.GetKeyDown(KeyCode.Space) && canShoot) {
 			canShoot = false;
